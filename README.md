@@ -6,7 +6,7 @@ service. NOTE: To use a private hosted zone, you must set the following VPC attr
 
 ```terraform
 module "privatelink" {
-  source                   = "github.com/schubergphilis/terraform-aws-mcaf-privatelink"
+  source                   = "github.com/schubergphilis-ep/terraform-aws-mcaf-privatelink"
   name                     = "test"
   allowed_principals       = ["arn:aws:iam::xxyyzz:root"]
   domain_name              = "test.com"
@@ -22,44 +22,6 @@ module "privatelink" {
   }
 }
 ```
-
-<!--- BEGIN_TF_DOCS --->
-## Requirements
-
-| Name | Version |
-|------|---------|
-| terraform | >= 0.13 |
-| aws | >= 3.23 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| aws | >= 3.23 |
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| allowed\_principals | List of allowed AWS principals to access the endpoint service | `list(string)` | n/a | yes |
-| name | Name to use for the PrivateLink resources | `string` | n/a | yes |
-| private\_dns\_name | Private DNS hostname to connect to the endpoint service | `string` | n/a | yes |
-| private\_subnet\_ids | List of subnet IDs assigned to the network load balancer | `list(string)` | n/a | yes |
-| tags | A mapping of tags to assign to the resources | `map(string)` | n/a | yes |
-| target\_port | The target port of the endpoint service | `number` | n/a | yes |
-| vpc\_id | The ID of the VPC | `string` | n/a | yes |
-| zone\_id | The ID of the DNS Zone | `string` | n/a | yes |
-| target\_ips | A list of target IP addresses of the endpoint service | `list(string)` | `[]` | no |
-| target\_protocol | The target protocol of the endpoint service | `string` | `"TCP"` | no |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| private\_dns\_name | Name of the private DNS to access the service |
-| service\_name | Service name of the Endpoint Service |
-
-<!--- END_TF_DOCS --->
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
